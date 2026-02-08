@@ -1,0 +1,146 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Playful pink Valentine proposal single-page (Astha) with yes-only flow and recorded acceptance",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a single-page Valentine proposal UI personalized to “Astha” with consistent pink, playful styling and English copy.",
+      "acceptanceCriteria": [
+        "The page prominently includes the name “Astha” in the main proposal content.",
+        "The UI uses a cohesive pink-forward palette and playful styling across all sections (not just the hero).",
+        "All visible text is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the single-page proposal experience layout (hero + content sections) with all copy in English and prominently featuring “Astha”. Use shadcn-ui primitives (e.g., Button/Card) to keep styling consistent. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/index.css",
+          "operation": "modify",
+          "description": "Adjust global theme tokens and base styles to a cohesive pink-forward, playful Valentine aesthetic (typography, spacing, buttons/background defaults) used across the entire single page."
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Ensure the app renders the new single-page App component and that global styles are imported from the correct location (align the CSS import with where the Tailwind entry file lives)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement a yes-only proposal interaction that cannot result in a denial outcome, even if a playful “No” element exists.",
+      "acceptanceCriteria": [
+        "There is a clear primary call-to-action that results in an explicit acceptance (“Yes”) success screen/state.",
+        "There is no reachable UI state that records or displays a rejection/denial outcome.",
+        "If a “No” element is included for playfulness, it cannot be used to complete a denial (e.g., it moves away, changes into “Yes”, or triggers a playful message and returns to the acceptance path)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/proposal/YesOnlyProposal.tsx",
+          "operation": "create",
+          "description": "Create the interaction component that provides a primary “Yes” CTA and an optional playful “No” control that cannot complete a denial (e.g., evades pointer, transforms into “Yes”, or loops back to the yes path). Use shadcn-ui Button for consistent interactions. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the YesOnlyProposal component into the single-page flow so the only completion path is acceptance (no rejection state or routing)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add a celebratory acceptance success state with cute animation, romantic confirmation message for Astha, and an optional follow-up prompt that stays within the yes-only flow.",
+      "acceptanceCriteria": [
+        "After acceptance, the UI shows a distinct success section/state with celebratory visuals.",
+        "The success state includes a confirmation message addressing Astha by name.",
+        "Any follow-up interaction does not introduce a rejection/denial path."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/proposal/SuccessCelebration.tsx",
+          "operation": "create",
+          "description": "Create the success-state UI shown after “Yes”: romantic confirmation message addressing Astha, plus an optional follow-up prompt (e.g., picking a date idea) that has no rejection branch. Use shadcn-ui Card/Button (and optional Input/Textarea) for polished UI. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/proposal/HeartsConfetti.tsx",
+          "operation": "create",
+          "description": "Implement a lightweight cute animation overlay (hearts/confetti) for the success state using Tailwind + CSS animations (no denial branches, purely visual)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Connect acceptance state to show SuccessCelebration (including HeartsConfetti) as a distinct post-acceptance experience, while keeping the overall experience single-page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "On “Yes”, call the backend to record acceptance (timestamp + optional note) and display latest saved acceptance info or count on the success screen via React Query.",
+      "acceptanceCriteria": [
+        "Clicking the “Yes” action triggers a backend call that stores an acceptance record.",
+        "A backend query returns the stored acceptance data (at minimum: acceptance timestamp).",
+        "The success screen displays confirmation that acceptance was recorded (e.g., “Saved!” plus the time or a count)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/services/acceptanceApi.ts",
+          "operation": "create",
+          "description": "Add a small typed service wrapper that calls the existing backend capabilities (recordAcceptance, getLatestRecord, getAcceptanceCount) defined in frontend/src/backend.d.ts; keep this as frontend-only wiring (no backend changes)."
+        },
+        {
+          "path": "frontend/src/hooks/useAcceptance.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for: recording acceptance (mutation) and fetching latest acceptance record/count (queries), including cache invalidation after recording."
+        },
+        {
+          "path": "frontend/src/components/proposal/YesOnlyProposal.tsx",
+          "operation": "modify",
+          "description": "Trigger the React Query mutation on “Yes” to record acceptance with an optional client-provided note (kept short), then transition into the success state after the call resolves (no rejection state)."
+        },
+        {
+          "path": "frontend/src/components/proposal/SuccessCelebration.tsx",
+          "operation": "modify",
+          "description": "Display confirmation that acceptance was recorded by showing either the latest acceptance timestamp (converted from bigint) and/or total acceptance count fetched via React Query, including a clear “Saved!” indication."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Integrate the required generated static images (background, mascot, stickers) from frontend public assets into the hero and additional decorative areas.",
+      "acceptanceCriteria": [
+        "Generated images are placed under frontend/public/assets/generated and are referenced directly by the frontend.",
+        "At least one generated image is used in the hero area and one as a decorative/sticker element elsewhere on the page."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/valentine-bg.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add the generated image asset file to be used as the page background: frontend/public/assets/generated/valentine-bg.dim_1920x1080.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/heart-mascot.dim_800x800.png",
+          "operation": "create",
+          "description": "Add the generated mascot image asset file for the hero area: frontend/public/assets/generated/heart-mascot.dim_800x800.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/valentine-stickers.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated stickers sheet image asset file for decorative usage: frontend/public/assets/generated/valentine-stickers.dim_1024x1024.png."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Reference frontend/public/assets/generated/valentine-bg.dim_1920x1080.png as the page background and frontend/public/assets/generated/heart-mascot.dim_800x800.png prominently in the hero section (static asset references only; do not serve via backend)."
+        },
+        {
+          "path": "frontend/src/components/proposal/SuccessCelebration.tsx",
+          "operation": "modify",
+          "description": "Use frontend/public/assets/generated/valentine-stickers.dim_1024x1024.png as decorative/sticker imagery in the success section (and/or elsewhere beyond the hero) to enhance the playful Valentine theme."
+        }
+      ]
+    }
+  ]
+}

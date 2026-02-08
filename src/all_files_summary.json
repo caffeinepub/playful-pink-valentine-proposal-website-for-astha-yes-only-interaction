@@ -1,0 +1,18 @@
+{
+  "backend/main.mo": "Motoko backend actor that stores acceptance records with timestamps and optional notes, and exposes queries for latest record and total count.",
+  "feature_evidence.json": "Feature evidence report listing implemented features, related files, components, and test IDs for the project.",
+  "frontend-file-summaries.txt": "Prewritten summaries describing the purpose of each frontend file in the project.",
+  "frontend/index.css": "Empty CSS file placeholder for global styles.",
+  "frontend/index.html": "HTML entry point that mounts the React app and loads main.tsx.",
+  "frontend/src/App.tsx": "Root React component toggling between the proposal screen and the success celebration based on acceptance state.",
+  "frontend/src/components/proposal/HeartsConfetti.tsx": "Component generating animated floating heart confetti using inline keyframes and randomized heart properties.",
+  "frontend/src/components/proposal/SuccessCelebration.tsx": "Celebration screen showing hearts animation, romantic messages, and acceptance record details pulled from the backend.",
+  "frontend/src/components/proposal/YesOnlyProposal.tsx": "Interactive proposal component where the No button evades the user while Yes triggers a backend acceptance record and state change.",
+  "frontend/src/hooks/useAcceptance.ts": "React Query hooks for recording acceptance and retrieving latest acceptance data and counts from the backend.",
+  "frontend/src/hooks/useActor.ts": "Hook that creates and manages the backend actor instance based on Internet Identity authentication state.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Implements a React context and provider for managing Internet Identity authentication, exposing identity state, login, logout, and status helpers. Includes helper logic for creating AuthClient instances and loading stored identities.",
+  "frontend/src/index.css": "Defines Tailwind base layers and a large set of OKLCH color variables for light and dark themes, applying global background, text, and border styles.",
+  "frontend/src/main.tsx": "Bootstraps the React app, wrapping it with React Query and the InternetIdentityProvider before rendering. Imports global styles and mounts the App component.",
+  "frontend/tailwind.config.js": "Configures Tailwind with custom OKLCH color tokens, container settings, extended animations, fonts, shadows, and plugin integrations.",
+  "project_state.json": "Contains project metadata describing a pink Valentine proposal website, its features, requirements, image assets, and overall build state."
+}

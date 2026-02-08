@@ -1,0 +1,130 @@
+{
+  "kind": "build_request",
+  "title": "Playful pink Valentine proposal website for Astha (Yes-only interaction)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a single-page Valentine proposal website personalized for the name “Astha”, with all user-facing text in English and a consistently pink, playful, fun visual style (colors, typography, spacing, buttons, and backgrounds).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "make me a website for valentine proposal for my girlfriend name astha make it in a pink way and make it playful and in a  fun way"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The page prominently includes the name “Astha” in the main proposal content.",
+        "The UI uses a cohesive pink-forward palette and playful styling across all sections (not just the hero).",
+        "All visible text is in English."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a proposal interaction flow that provides no effective way to deny the proposal: the UX must lead to a single successful outcome (“Yes”), and any attempted “No”/dismiss/close actions (if present) must not result in a denial state.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "there will be no option for her to deny itt"
+        ]
+      },
+      "acceptanceCriteria": [
+        "There is a clear primary call-to-action that results in an explicit acceptance (“Yes”) success screen/state.",
+        "There is no reachable UI state that records or displays a rejection/denial outcome.",
+        "If a “No” element is included for playfulness, it cannot be used to complete a denial (e.g., it moves away, changes into “Yes”, or triggers a playful message and returns to the acceptance path)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a celebratory “Yes” success experience: a cute animation (e.g., hearts/confetti), a short romantic confirmation message, and an optional small follow-up prompt (e.g., “Pick our date idea”) that stays within the Yes-only flow (no rejection branches).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "make it playful and in a  fun way that she will accept it"
+        ]
+      },
+      "acceptanceCriteria": [
+        "After acceptance, the UI shows a distinct success section/state with celebratory visuals.",
+        "The success state includes a confirmation message addressing Astha by name.",
+        "Any follow-up interaction does not introduce a rejection/denial path."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add backend persistence to record when the proposal is accepted (timestamp + optional client-provided short note), and expose a query to retrieve the latest acceptance record (or total accept count) for display on the success screen.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "that she will accept it"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking the “Yes” action triggers a backend call that stores an acceptance record.",
+        "A backend query returns the stored acceptance data (at minimum: acceptance timestamp).",
+        "The success screen displays confirmation that acceptance was recorded (e.g., “Saved!” plus the time or a count)."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Use generated static image assets to enhance the playful Valentine theme (background/hero illustration/stickers), and render them from frontend static assets (do not serve images via the backend).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "make it in a pink way and make it playful and in a  fun way"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images are placed under frontend/public/assets/generated and are referenced directly by the frontend.",
+        "At least one generated image is used in the hero area and one as a decorative/sticker element elsewhere on the page."
+      ]
+    }
+  ],
+  "constraints": [
+    "Use only the supported stack (React + TypeScript + Tailwind + React Query on the frontend; single Motoko actor on the backend).",
+    "Do not modify any frontend files in immutablePaths (compose UI using allowed files/components instead).",
+    "Do not add third-party auth providers; if auth is needed, only Internet Identity is allowed (but is not required for this build)."
+  ],
+  "nonGoals": [
+    "Multi-page site with complex routing.",
+    "External integrations (social APIs, maps, email/SMS, real-time sockets).",
+    "A deny/reject outcome, rejection analytics, or any UX that allows completing a “No” flow."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Pink heart-pattern background with subtle gradients and sparkles (valentine-bg.dim_1920x1080.png)",
+      "Cute cartoon heart character holding a small sign (heart-mascot.dim_800x800.png)",
+      "Set of 6 small playful Valentine stickers (hearts, roses, candies) on transparent background (valentine-stickers.dim_1024x1024.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "User-facing copy must be English.",
+      "Visual style: pink, playful, fun Valentine theme."
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [
+      "Personalization target name: Astha.",
+      "Interaction constraint: no effective option to deny; only acceptance outcome."
+    ],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

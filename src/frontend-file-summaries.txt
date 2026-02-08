@@ -1,0 +1,10 @@
+{
+  "frontend/src/App.tsx": "Main application component that manages the proposal flow state and renders either the YesOnlyProposal or SuccessCelebration component with a pink-themed background and footer.",
+  "frontend/src/components/proposal/YesOnlyProposal.tsx": "Interactive proposal component featuring a playful \"Yes/No\" interaction where the No button moves away on hover and the Yes button grows larger, ultimately recording acceptance via backend mutation.",
+  "frontend/src/components/proposal/SuccessCelebration.tsx": "Success screen component that displays celebratory message for Astha, shows recorded acceptance timestamp and count from backend, and presents date activity options.",
+  "frontend/src/components/proposal/HeartsConfetti.tsx": "Animated confetti component that renders floating heart emojis across the screen using CSS animations for the celebration effect.",
+  "frontend/src/hooks/useAcceptance.ts": "React Query hooks for managing acceptance data including mutations to record acceptance and queries to fetch latest record and acceptance count from the backend.",
+  "frontend/index.css": "Global styles with OKLCH-based pink color system for light and dark modes, featuring pink/rose hues (hue 350) with varying lightness and chroma values.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with pink-themed shadows, custom animations, and display font family for the Valentine's proposal aesthetic.",
+  "frontend/src/main.tsx": "Application entry point that sets up React Query and Internet Identity providers, with CSS import path corrected to ./index.css."
+}

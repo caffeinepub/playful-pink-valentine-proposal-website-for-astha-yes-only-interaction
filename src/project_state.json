@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a playful, pink-themed Valentine’s proposal website personalized for Astha, featuring a fun interaction flow that only allows accepting the proposal (no deny option).",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Pink heart-pattern background with subtle gradients and sparkles (valentine-bg.dim_1920x1080.png)\n- Cute cartoon heart character holding a small sign (heart-mascot.dim_800x800.png)\n- Set of 6 small playful Valentine stickers (hearts, roses, candies) on transparent background (valentine-stickers.dim_1024x1024.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-page-valentine-proposal-website-personalized-for-the-name-astha-with-all-user-facing-text-in-english-and-a-consistently-pink-playful-fun-visual-style-colors-typography-spacing-buttons-and-backgrounds",
+      "title": "Create a single-page Valentine proposal website personalized for the name “Astha”, with all user-facing text in English and a consistently pink, playful, fun visual style (colors, typography, spacing, buttons, and backgrounds).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-proposal-interaction-flow-that-provides-no-effective-way-to-deny-the-proposal-the-ux-must-lead-to-a-single-successful-outcome-yes-and-any-attempted-no-dismiss-close-actions-if-present-must-not-result-in-a-denial-state",
+      "title": "Implement a proposal interaction flow that provides no effective way to deny the proposal: the UX must lead to a single successful outcome (“Yes”), and any attempted “No”/dismiss/close actions (if present) must not result in a denial state.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-celebratory-yes-success-experience-a-cute-animation-e-g-hearts-confetti-a-short-romantic-confirmation-message-and-an-optional-small-follow-up-prompt-e-g-pick-our-date-idea-that-stays-within-the-yes-only-flow-no-rejection-branches",
+      "title": "Add a celebratory “Yes” success experience: a cute animation (e.g., hearts/confetti), a short romantic confirmation message, and an optional small follow-up prompt (e.g., “Pick our date idea”) that stays within the Yes-only flow (no rejection branches).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-backend-persistence-to-record-when-the-proposal-is-accepted-timestamp-optional-client-provided-short-note-and-expose-a-query-to-retrieve-the-latest-acceptance-record-or-total-accept-count-for-display-on-the-success-screen",
+      "title": "Add backend persistence to record when the proposal is accepted (timestamp + optional client-provided short note), and expose a query to retrieve the latest acceptance record (or total accept count) for display on the success screen.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-use-generated-static-image-assets-to-enhance-the-playful-valentine-theme-background-hero-illustration-stickers-and-render-them-from-frontend-static-assets-do-not-serve-images-via-the-backend",
+      "title": "Use generated static image assets to enhance the playful Valentine theme (background/hero illustration/stickers), and render them from frontend static assets (do not serve images via the backend).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a pink, playful Valentine’s proposal website personalized for Astha, with an interaction flow that only allows a “Yes” acceptance (no deny option).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Playful pink Valentine proposal website for Astha (Yes-only interaction)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

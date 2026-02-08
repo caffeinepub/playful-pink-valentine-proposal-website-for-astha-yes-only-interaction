@@ -1,0 +1,103 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-single-page-valentine-proposal-website-personalized-for-the-name-astha-with-all-user-facing-text-in-english-and-a-consistently-pink-playful-fun-visual-style-colors-typography-spacing-buttons-and-backgrounds",
+      "featureTitle": "Create a single-page Valentine proposal website personalized for the name “Astha”, with all user-facing text in English and a consistently pink, playful, fun visual style (colors, typography, spacing, buttons, and backgrounds).",
+      "files": [
+        "frontend/index.css",
+        "frontend/src/App.tsx",
+        "frontend/src/main.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-proposal-interaction-flow-that-provides-no-effective-way-to-deny-the-proposal-the-ux-must-lead-to-a-single-successful-outcome-yes-and-any-attempted-no-dismiss-close-actions-if-present-must-not-result-in-a-denial-state",
+      "featureTitle": "Implement a proposal interaction flow that provides no effective way to deny the proposal: the UX must lead to a single successful outcome (“Yes”), and any attempted “No”/dismiss/close actions (if present) must not result in a denial state.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/proposal/YesOnlyProposal.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-celebratory-yes-success-experience-a-cute-animation-e-g-hearts-confetti-a-short-romantic-confirmation-message-and-an-optional-small-follow-up-prompt-e-g-pick-our-date-idea-that-stays-within-the-yes-only-flow-no-rejection-branches",
+      "featureTitle": "Add a celebratory “Yes” success experience: a cute animation (e.g., hearts/confetti), a short romantic confirmation message, and an optional small follow-up prompt (e.g., “Pick our date idea”) that stays within the Yes-only flow (no rejection branches).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/proposal/HeartsConfetti.tsx",
+        "frontend/src/components/proposal/SuccessCelebration.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-backend-persistence-to-record-when-the-proposal-is-accepted-timestamp-optional-client-provided-short-note-and-expose-a-query-to-retrieve-the-latest-acceptance-record-or-total-accept-count-for-display-on-the-success-screen",
+      "featureTitle": "Add backend persistence to record when the proposal is accepted (timestamp + optional client-provided short note), and expose a query to retrieve the latest acceptance record (or total accept count) for display on the success screen.",
+      "files": [
+        "frontend/src/components/proposal/SuccessCelebration.tsx",
+        "frontend/src/components/proposal/YesOnlyProposal.tsx",
+        "frontend/src/hooks/useAcceptance.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-use-generated-static-image-assets-to-enhance-the-playful-valentine-theme-background-hero-illustration-stickers-and-render-them-from-frontend-static-assets-do-not-serve-images-via-the-backend",
+      "featureTitle": "Use generated static image assets to enhance the playful Valentine theme (background/hero illustration/stickers), and render them from frontend static assets (do not serve images via the backend).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/proposal/SuccessCelebration.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
